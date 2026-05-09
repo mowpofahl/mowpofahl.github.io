@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GA4 User Behavior — Mo Pofahl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><img src="assets/sigblack.png" alt="Mo Pofahl" class="nav-logo-sig" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="Resume - MoPofahl.pdf" class="nav-resume" target="_blank" rel="noopener">Resume</a></li>
+    </ul>
+  </nav>
+
+  <!-- PROJECT HERO -->
+  <section class="proj-hero">
+    <a href="index.html" class="proj-back">← Back to Projects</a>
+    <div class="section-label">// product analytics</div>
+    <h1 class="proj-title">How does user behavior differ between new and returning users on the Google Merchandise Store?</h1>
+    <p class="proj-intro">
+      User behavior analysis is central to product and growth decisions — yet the difference between new and returning users is often oversimplified. This project digs into GA4 ecommerce data from the Google Merchandise Store to quantify exactly how these two groups differ across conversion, revenue, and acquisition. As someone drawn to understanding what drives user behavior, I wanted to move beyond surface-level traffic metrics and uncover what the data actually reveals.
+    </p>
+    <div class="proj-tags">
+      <span class="tag">BigQuery</span>
+      <span class="tag">SQL</span>
+      <span class="tag">Google Data Studio</span>
+      <span class="tag">GA4</span>
+      <span class="tag">EDA</span>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="proj-section">
+    <div class="dashboard-embed">
+      <iframe src="https://datastudio.google.com/embed/reporting/33491c56-22e0-4fce-bbf2-2044246be367/page/eQKxF" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- KEY TAKEAWAYS -->
+  <section class="proj-section">
+    <div class="section-label">// findings</div>
+    <h2 class="proj-section-title">Key Takeaways</h2>
+    <div class="takeaways">
+
+      <div class="takeaway">
+        <span class="takeaway-stat">3.7x</span>
+        <p class="takeaway-text">Returning users convert 3.7x more than new users — yet they represent only 4.4% of total traffic, suggesting significant room to grow retention.</p>
+      </div>
+
+      <div class="takeaway">
+        <span class="takeaway-stat">3x</span>
+        <p class="takeaway-text">Returning users generate 3x more revenue per session than new users — a high-value segment that represents less than 5% of total traffic.</p>
+      </div>
+
+      <div class="takeaway">
+        <span class="takeaway-stat">#1</span>
+        <p class="takeaway-text">Organic is the dominant acquisition channel across all user types — with the highest session volume by far, it represents the most scalable path to growth.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="proj-section">
+    <div class="section-label">// methodology</div>
+    <h2 class="proj-section-title">Methodology</h2>
+    <div class="methodology">
+      <div class="method-row">
+        <span class="method-label">Data Source</span>
+        <span class="method-value">Google Merchandise Store GA4 sample dataset (BigQuery)</span>
+      </div>
+      <div class="method-row">
+        <span class="method-label">Tools</span>
+        <span class="method-value">BigQuery (SQL), Google Data Studio</span>
+      </div>
+      <div class="method-row">
+        <span class="method-label">Date Range</span>
+        <span class="method-value">Nov 2020 – Jan 2021</span>
+      </div>
+      <div class="method-row">
+        <span class="method-label">Focus</span>
+        <span class="method-value">Behavioral differences between new and returning users across conversion, revenue, and acquisition</span>
+      </div>
+    </div>
+
+    <a href="https://github.com/mowpofahl/google-merch-user-analysis" target="_blank" rel="noopener" class="proj-github-link">View SQL Queries on GitHub →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© 2026 Mo Pofahl</span>
+    <a href="index.html" class="footer-back">← Back to Portfolio</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physician Access & Income Inequality — Mo Pofahl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><img src="assets/sigblack.png" alt="Mo Pofahl" class="nav-logo-sig" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="Resume - MoPofahl.pdf" class="nav-resume" target="_blank" rel="noopener">Resume</a></li>
+    </ul>
+  </nav>
+
+  <!-- PROJECT HERO -->
+  <section class="proj-hero">
+    <a href="index.html" class="proj-back">← Back to Projects</a>
+    <div class="section-label">// class project · SI305</div>
+    <h1 class="proj-title">Physician Density and Socioeconomic Disparities in Michigan ZIP Codes</h1>
+    <p class="proj-intro">
+      Physicians in Michigan tend to practice in wealthier areas, leaving low-income communities underserved.
+      Using 31 years of NaNDA data, I examined how physician density has shifted across income groups from
+      1990 to 2021 — and identified which demographic factors most strongly predict where physicians do and don't practice.
+    </p>
+    <div class="proj-tags">
+      <span class="tag">Python</span>
+      <span class="tag">Pandas</span>
+      <span class="tag">SciPy</span>
+      <span class="tag">NaNDA</span>
+      <span class="tag">Statistical Analysis</span>
+    </div>
+  </section>
+
+  <!-- STAT STRIP -->
+  <section class="proj-section">
+    <div class="takeaways">
+
+      <div class="takeaway">
+        <span class="takeaway-stat">2x</span>
+        <p class="takeaway-text">The physician density gap between the highest and lowest income quartiles doubled over the 31-year period — low-income communities fell further behind, not closer.</p>
+      </div>
+
+      <div class="takeaway">
+        <span class="takeaway-stat">r = 0.23</span>
+        <p class="takeaway-text">Median family income was the strongest predictor of physician density among all demographic variables tested, significant at p &lt; 0.001.</p>
+      </div>
+
+      <div class="takeaway">
+        <span class="takeaway-stat">31 yrs</span>
+        <p class="takeaway-text">Analysis spans 1990–2021 across Michigan ZIP codes, capturing long-term structural trends rather than a single snapshot.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section class="proj-section">
+    <div class="section-label">// background</div>
+    <h2 class="proj-section-title">The Problem</h2>
+    <p class="proj-body">
+      Access to healthcare in the United States is not distributed equally. Research has consistently shown that physicians
+      concentrate in wealthier areas — one study found 31% more primary care physicians in the highest-income counties
+      compared to the lowest. Low-income communities face compounding barriers: limited insurance coverage, lower Medicaid
+      reimbursement rates that reduce physician incentive to practice there, and greater reliance on emergency rooms for
+      basic care. Michigan's chief medical officer has directly named physician maldistribution as a core access problem.
+      This project uses ZIP-code-level data to quantify exactly how severe that maldistribution is — and which communities
+      bear the most risk.
+    </p>
+  </section>
+
+  <!-- RQ1 -->
+  <section class="proj-section">
+    <div class="section-label">// research question 1</div>
+    <h2 class="proj-section-title">How has physician density changed across income groups from 1990 to 2021?</h2>
+    <p class="proj-body">
+      ZIP codes were grouped into four income quartiles using median family income from the NaNDA socioeconomic dataset.
+      Average physician density was calculated for each quartile across every year from 1990 to 2021.
+      Highest-income ZIP codes had consistently greater physician density throughout the entire period.
+      All four groups rose together from around 2000 to 2011, then declined after 2011.
+      Importantly, low-income ZIP codes actually had more physicians per capita in 2021 than in 1990 —
+      the gap widened because high-income areas gained physicians faster, not because low-income areas lost them.
+      A closer look at the spread between the top and bottom quartiles shows it doubled over the period,
+      narrowing from 2013 to 2016 before widening again and peaking in 2019.
+      One methodological note: averages are unweighted across ZCTAs, giving equal weight to a ZIP code with 500 residents
+      and one with 50,000. A population-weighted version could tell a different story, particularly for the smallest and
+      most rural ZCTAs.
+    </p>
+    <div class="proj-viz-grid">
+      <figure class="proj-viz">
+        <img src="assets/physician_images/physden-income.png" alt="Average physician density by income quartile, 1990–2021" />
+        <figcaption>Average physician density per 10,000 residents across Michigan ZIP codes, grouped by income quartile (1990–2021)</figcaption>
+      </figure>
+      <figure class="proj-viz">
+        <img src="assets/physician_images/gap%20in%20average%20density.png" alt="Gap in physician density between highest and lowest income quartiles" />
+        <figcaption>Difference in average physician density (per 10,000 residents) between the highest and lowest income quartiles, Michigan ZIP codes, 1990–2021. Higher values indicate a larger gap favoring high-income areas.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- RQ2 -->
+  <section class="proj-section">
+    <div class="section-label">// research question 2</div>
+    <h2 class="proj-section-title">Which demographic factors most strongly predict low physician density?</h2>
+    <p class="proj-body">
+      To identify the strongest predictors, Pearson r correlation coefficients were calculated for five variables:
+      poverty rate, median family income, disadvantage index, proportion Hispanic, and proportion non-Hispanic Black —
+      each tested independently against physician density.
+      Median family income had the strongest positive correlation (r = 0.23), followed by proportion non-Hispanic Black (r = 0.17).
+      Both were statistically significant at p &lt; 0.001. Poverty rate and the disadvantage index showed near-zero correlations
+      with physician density on their own — not because they overlap with each other (that would matter in a regression, not
+      in separate correlations), but simply because they are weak individual predictors of where physicians practice.
+      The finding around race was unexpected — but likely reflects the concentration of Black residents in urban areas
+      like Detroit, Flint, and Lansing, which happen to host large hospital systems.
+      The scatter plot reinforces this: most ZCTAs cluster near zero regardless of income, with a handful of high-density
+      outliers spiking to 5–7 physicians per 10,000 residents. Those outliers appear across all income levels, suggesting
+      they represent ZCTAs that contain hospitals or medical centers rather than a clean income effect.
+      The most important untested explanation is urban vs. rural location: adding population density as a control,
+      or splitting the analysis by urbanicity, would directly test whether the income pattern holds once geography is accounted for.
+    </p>
+    <div class="proj-viz-grid">
+      <figure class="proj-viz">
+        <img src="assets/physician_images/barchart.png" alt="Correlation between demographic predictors and physician density" />
+        <figcaption>Pearson r correlation between demographic predictors and physician density per 10,000 residents, Michigan ZIP codes (2021). Y-axis shows raw dataset variable codes: PPOV = poverty rate, DISADVANTAGE = composite disadvantage index, MFI = median family income, PHISP = proportion Hispanic, PNHBLK = proportion non-Hispanic Black.</figcaption>
+      </figure>
+      <figure class="proj-viz">
+        <img src="assets/physician_images/scatterplotreg.png" alt="Median family income vs physician density scatter plot" />
+        <figcaption>Median family income vs. physician density per 10,000 residents across Michigan ZIP codes (2021)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- RECOMMENDATIONS -->
+  <section class="proj-section">
+    <div class="section-label">// recommendations</div>
+    <h2 class="proj-section-title">What Should Change</h2>
+    <div class="rec-grid">
+
+      <div class="rec-card">
+        <div class="rec-audience">Michigan Dept. of Health &amp; Human Services</div>
+        <h3 class="rec-title">Loan Repayment Incentives for Physicians in Low-Income ZIP Codes</h3>
+        <p class="rec-body">
+          The 31-year widening gap and the income correlation both point to the same root cause: financial incentives pull physicians toward wealthier areas.
+          A Michigan-specific loan repayment program targeting low-income ZIP codes would directly counter that incentive — more targeted than existing federal HRSA programs,
+          which apply broadly to federally designated shortage areas rather than the specific Michigan communities most affected.
+        </p>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-audience">Michigan Legislature</div>
+        <h3 class="rec-title">Subsidized Telehealth Access in Underserved Communities</h3>
+        <p class="rec-body">
+          Attracting physicians to low-income ZIP codes is a long-term challenge. In the near term, the Michigan Legislature should
+          fund subsidized telehealth subscriptions or devices for residents in underserved areas — giving them access to preventive
+          and routine care before conditions worsen, reducing emergency room reliance, and bridging the gap while structural reforms take effect.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="proj-section">
+    <div class="section-label">// methodology</div>
+    <h2 class="proj-section-title">Methodology</h2>
+    <div class="methodology">
+      <div class="method-row">
+        <span class="method-label">Data Source</span>
+        <span class="method-value">NaNDA Healthcare Services &amp; Socioeconomic datasets (University of Michigan ISR / ICPSR)</span>
+      </div>
+      <div class="method-row">
+        <span class="method-label">Tools</span>
+        <span class="method-value">Python, Pandas, SciPy, Matplotlib</span>
+      </div>
+      <div class="method-row">
+        <span class="method-label">Time Range</span>
+        <span class="method-value">1990–2021 (RQ1) · 2021 cross-section (RQ2)</span>
+      </div>
+      <div class="method-row">
+        <span class="method-label">Methods</span>
+        <span class="method-value">Income quartile grouping, longitudinal trend analysis, Pearson r correlation</span>
+      </div>
+      <div class="method-row">
+        <span class="method-label">Unit of Analysis</span>
+        <span class="method-value">Michigan ZIP Code Tabulation Areas (ZCTAs)</span>
+      </div>
+      <div class="method-row">
+        <span class="method-label">Sample</span>
+        <span class="method-value">939 of 987 ZCTAs after merge (48 dropped); distribution of dropped ZCTAs across income and region not formally tested</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <a href="https://github.com/mowpofahl/michigan-physician-density-analysis" target="_blank" rel="noopener" class="proj-github-link">View Full Notebook on GitHub →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© 2026 Mo Pofahl</span>
+    <a href="index.html" class="footer-back">← Back to Portfolio</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
