@@ -1102,6 +1102,12 @@ section {
   .contact { padding: 4rem 1.5rem; }
   .footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
   .hero-scroll-hint { display: none; }
+
+  /* Project pages */
+  .proj-section { padding: 2.5rem 1.5rem; }
+  .takeaways { grid-template-columns: 1fr; }
+  .method-row { grid-template-columns: 1fr; gap: 0.35rem; }
+  .method-label { padding-top: 0; }
 }
 
 @media (max-width: 480px) {
